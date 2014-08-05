@@ -1,0 +1,77 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/morrisjs/morris.css" />
+    <link rel="stylesheet" href="bower_components/metisMenu/dist/metisMenu.css" />
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/common/commonBody.css" />
+    <link rel="stylesheet" href="styles/common/commonSidebar.css" />
+    <link rel="stylesheet" href="styles/common/commonHeader.css" />
+     <link rel="stylesheet" href="styles/dashboard/quickpanel.css" />
+    <link rel="stylesheet" href="styles/main.css"/>
+    <!-- endbuild -->
+
+     <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/es5-shim/es5-shim.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/json3/lib/json3.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/raphael/raphael.js"></script>
+    <script src="bower_components/mocha/mocha.js"></script>
+    <script src="bower_components/morrisjs/morris.js"></script>
+    <script src="bower_components/metisMenu/dist/metisMenu.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+     <!-- build:js({.tmp,app}) scripts/scripts.js -->
+
+     	<script src="scripts/controllers/dashboard/QuickPanelController.js"></script>
+        <script src="scripts/controllers/dashboard/DBCpuCtrl.js"></script>
+
+        <script src="scripts/directives/common/commonHeader.js"></script>
+        <script src="scripts/directives/common/commonSidebar.js"></script>
+        <script src="scripts/directives/dashboard/dbPanelcard.js"></script>
+		<script src="scripts/directives/cpu/cpuUsage.js"></script>
+
+		<script src="scripts/vender/canvasjs.min.js"></script>
+        <script src="scripts/app.js"></script>
+    <!-- endbuild -->
+  
+  </head>
+  <body ng-app="applianceApp">
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+    	<div id="wrapper">
+        <!-- Navigation -->
+	        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">   
+		        <common-header></common-header>
+		        <common-sidebar></common-sidebar>
+	        </nav>
+    	
+	    	<div id="page-wrapper">
+	    		<ng-view></ng-view>
+	    	</div>
+    	</div>
+	</body>
+</html>
