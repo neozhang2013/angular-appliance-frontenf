@@ -1,0 +1,10 @@
+angular.module('dashboard',[]).
+	constant(
+		'panelcards', 
+		[
+			{name:'CPU',url:'/cpu',icon:'film',color:'primary'},
+			{name:'Disk',url:'/disk',icon:'hdd-o',color:'green'},
+			{name:'Net',url:'/Net',icon:'sitemap',color:'red'},
+			{name:'Computer',url:'/#/computer',icon:'desktop',color:'yellow'}
+		]
+	);

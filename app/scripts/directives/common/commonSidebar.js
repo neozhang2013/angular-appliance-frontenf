@@ -1,4 +1,4 @@
-angular.module('common').directive('commonSidebar',  function(){
+angular.module('common').directive('commonSidebar', ['commonmenu',function(commonmenu){
 	// Runs during compile
 	return {
 		// name: '',
@@ -13,26 +13,7 @@ angular.module('common').directive('commonSidebar',  function(){
 		// replace: true,
 		// transclude: true,
 		compile: function(Elmt){
-			var menu=[
-				{name:'Dashboard',url:'/dashboard',icon:'dashboard',child:
-					[
-						{name:'CPU',url:'/cpu',icon:'film'},
-						{name:'Disk',url:'/disk',icon:'hdd-o'},
-						{name:'Net',url:'/Net',icon:'sitemap'},
-						{name:'Services',url:'/services',icon:'cogs'}
-					]
-				},
-				{name:'CPU',url:'/cpu',icon:'film',child:
-					[
-						{name:'realtime',url:'/cpu/realtime'},
-						{name:'process',url:'/cpu/process'}
-					]
-				},
-				{name:'Disk',url:'/disk',icon:'hdd-o'},
-				{name:'Net',url:'/Net',icon:'sitemap'},
-				{name:'Services',url:'/services',icon:'cogs'}
-
-			];
+			var menu=commonmenu;
 			var menuLevlStyleList = ["nav","nav nav-second-level","nav nav-third-level"]
 			var addSubmenu = function(Elmt,menu,level){
 				    var ul= angular.element("<ul></ul>").addClass(menuLevlStyleList[level]);
@@ -69,4 +50,4 @@ angular.module('common').directive('commonSidebar',  function(){
 			};
 		}
 	};
-});
+}]);

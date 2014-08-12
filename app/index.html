@@ -18,7 +18,8 @@
     <link rel="stylesheet" href="styles/common/commonBody.css" />
     <link rel="stylesheet" href="styles/common/commonSidebar.css" />
     <link rel="stylesheet" href="styles/common/commonHeader.css" />
-     <link rel="stylesheet" href="styles/dashboard/quickpanel.css" />
+    <link rel="stylesheet" href="styles/dashboard/quickpanel.css" />
+    <link rel="stylesheet" href="styles/computer/computerInfo.css" />
     <link rel="stylesheet" href="styles/main.css"/>
     <!-- endbuild -->
 
@@ -38,18 +39,30 @@
     <script src="bower_components/mocha/mocha.js"></script>
     <script src="bower_components/morrisjs/morris.js"></script>
     <script src="bower_components/metisMenu/dist/metisMenu.js"></script>
+    <script src="bower_components/jquery-knob/dist/jquery.knob.min.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
      <!-- build:js({.tmp,app}) scripts/scripts.js -->
 
+     	<script src="scripts/modules/dashboard.js"></script>
+     	<script src="scripts/modules/computer.js"></script>
+		<script src="scripts/modules/common.js"></script>
+
      	<script src="scripts/controllers/dashboard/QuickPanelController.js"></script>
         <script src="scripts/controllers/dashboard/DBCpuCtrl.js"></script>
+
+        <script src="scripts/controllers/computer/ComputerCtrl.js"></script>
 
         <script src="scripts/directives/common/commonHeader.js"></script>
         <script src="scripts/directives/common/commonSidebar.js"></script>
         <script src="scripts/directives/dashboard/dbPanelcard.js"></script>
 		<script src="scripts/directives/cpu/cpuUsage.js"></script>
+		<script src="scripts/directives/cpu/processorUsage.js"></script>
+		<script src="scripts/directives/cpu/processorPanel.js"></script>
+		<script src="scripts/directives/computer/computerInfo.js"></script>
+
+		<script src="scripts/vender/canvasjs.min.js"></script>
         <script src="scripts/app.js"></script>
     <!-- endbuild -->
   

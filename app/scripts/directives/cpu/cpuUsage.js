@@ -3,7 +3,7 @@
 *
 * Description
 */
-angular.module('cpu').directive('cpuUsage', ['$http', function($http){
+angular.module('cpu').directive('cpuUsage', ['$interval','cpuFactory','$q', function($interval,$q,cpuFactory){
 	// Runs during compile
 	return {
 		// name: '',
@@ -17,12 +17,69 @@ angular.module('cpu').directive('cpuUsage', ['$http', function($http){
 		templateUrl: '/views/dashboard/dashboard_BChart.html',
 		// replace: true,
 		// transclude: true,
-		// compile: function($scope,iElm){},
-		// link: function($scope, iElm, iAttrs, controller) {
-		// 	//iElm.load($scope.usageTpl);
+		// compile: function($scope,iElm){
+			
 		// },
-		controller:function($scope){
+		link: function($scope, iElm,iAttr,$interval) {
+			$scope.chart = new CanvasJS.Chart("chartContainer", {
+              theme: "theme2",//theme1
+              title:{
+                  text: "cpu usage"              
+             },
+              data: [              
+              {
+// Change type to "bar", "splineArea", "area", "spline", "pie",etc.
+                  type: "line",
+                  dataPoints: $scope.data
+              }
+              ]
+          });
+		},
+		controller:function($scope,$interval,$q,cpuFactory){
 			$scope.chartTitle="CPU usage";
-		}
+			$scope.data =[] ;
+			$scope.$watch("cpuData",function(){
+				var cpuUsage={
+					x:$scope.cpuData.timestamp,
+					y:$scope.cpuData.total_usage
+				};
+				$scope.data.push(cpuUsage);
+				if($scope.data.length>10){
+		    			$scope.data.shift();
+		    			console.log("0: "+$scope.data[0].x);
+		    		    console.log("1: "+$scope.data[1].x);
+			    		
+		    		}
+				if($scope.chart&&$scope.data.length>5){
+			    			$scope.chart.render();
+			    			$scope.render =false;
+			    		}
+			}, true);
+			
+	}
+};
+}]);
+
+angular.module("cpu").factory('cpuFactory', ['$interval','$http','$q', function($interval,$http,$q){
+	var cpuFactory ={};
+    var deffered = $q.defer();
+    var cpuData = {};
+	cpuFactory.getCpuData = function(){
+
+		$http({
+        			url: 'http://10.200.120.222:8080/earlybird/cpu/getRealtimeUsage.do',
+        				method: "get",
+        				withCredentials: false,
+				        headers: {
+				                    'Content-Type': 'application/json; charset=utf-8'
+				        }
+    			}).success(function(data) {
+    				
+    				cpuData = data;
+    				//return cpuUsage;
+  			 })
+		return cpuData;
 	};
+	return cpuFactory;
+
 }]);

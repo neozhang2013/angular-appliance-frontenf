@@ -17,6 +17,7 @@ angular
     'ngSanitize',
     'common',
     'dashboard',
+    'computer',
     'cpu'
   ])
   .config(function ($routeProvider) {

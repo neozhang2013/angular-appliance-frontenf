@@ -1,19 +1,24 @@
- angular.module("common").directive('commonHeader', ['$http', function($http){
+angular.module("computer").directive('computerInfo', ['$http', function(){
 	// Runs during compile
 	return {
 		// name: '',
 		// priority: 1,
 		// terminal: true,
-		// scope: {}, // {} = isolate, true = child, false/undefined = no change
+		scope: {
+			computer: '='
+		} ,// {} = isolate, true = child, false/undefined = no change
 		// controller: function($scope, $element, $attrs, $transclude) {},
 		// require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
 		restrict: 'E', // E = Element, A = Attribute, C = Class, M = Comment
 		// template: '',
-		templateUrl: '/views/common/header.html',
+		templateUrl: 'views/computer/computerInfo.html',
 		// replace: true,
-		// transclude: true,
+		transclude: true,
 		// compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
-		link: function($scope, iElm, iAttrs, controller) {
+		link: function(scope, iElm, iAttrs, controller) {
+			
+		},
+		controller:function(){
 			
 		}
 	};
