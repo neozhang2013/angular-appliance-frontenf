@@ -2,12 +2,14 @@
 	<div class="computer_box computer_box-pricing">
 		<div class="computer_box-header">
 			<div class="computer_box-name">
-				<div>{{computer.name}}<br/>Perfomance</div>
+				<div>{{computer.host_name}}<br/>Perfomance</div>
 			</div>
 			<div class="no-move"></div>
 		</div>
 		<div class="computer_box-content no-padding">
 			<div class="row-fluid centered">
+				<div class="col-sm-12">OS: {{computer.os_type}}</div>
+				<div class="col-sm-12">IP: {{computer.ip}}</div>
 				<div class="col-sm-12">{{computer.ram}} RAM</div>
 				<div class="col-sm-12">{{computer.cpu}} CPU</div>
 				<div class="col-sm-12">{{computer.disk}} 		SATA3 Disk
@@ -18,7 +20,7 @@
 			<div class="row-fluid computer_bg-default">
 				<div class="col-sm-6">.</div>
 				<div class="col-sm-6">
-					<button type="button" class="btn btn-primary btn-block">on line</button>
+					<button type="button" class="btn btn-primary btn-block">{{computer.is_agent_online?"online":"off line"}}</button>
 				</div>
 				<div class="clearfix"></div>
 			</div>

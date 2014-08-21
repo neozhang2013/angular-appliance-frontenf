@@ -16,7 +16,7 @@ constant(
 		},
 		{name:'Monitor',url:'/',icon:'video-camera',child:
 			[
-				{name:'CPU',url:'/cpu',icon:'film'},
+				{name:'CPU',url:'/#/cpu',icon:'film'},
 				{name:'Disk',url:'/disk',icon:'hdd-o'},
 				{name:'Net',url:'/Net',icon:'sitemap'},
 				{name:'Services',url:'/services',icon:'cogs'}

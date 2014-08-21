@@ -1,27 +1,37 @@
-
-angular.module('cpu').directive('processorUsage', ['$http', function($http){
+angular.module('common').directive('commonTable', ['$http', function($http){
 	// Runs during compile
 	return {
 		// name: '',
 		// priority: 1,
 		// terminal: true,
 		scope: {
-			value:"@",
+			title:'=',
+			data:'=',
+			head:'=',
+			rowClick:"&"
 		}, // {} = isolate, true = child, false/undefined = no change
 		// controller: function($scope, $element, $attrs, $transclude) {},
 		// require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
-		restrict: 'AEC', // E = Element, A = Attribute, C = Class, M = Comment
-		template: '<div style="{margin:auto}">'+
-						'<input class="prcs" data-height="70" data-width="70" data-thickness=".2" data-skin="tron"  readonly/>'+
-					'</div>',
-		// templateUrl: '',
-		// replace: true,
+		restrict: 'AE', // E = Element, A = Attribute, C = Class, M = Comment
+		// template: '',
+		templateUrl: '/views/common/table.html',
+		replace: true,
 		transclude: true,
 		// compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
 		link: function(scope, iElm, iAttrs, controller) {
-			var processor = iElm.find(".prcs");
-			processor.val(scope.value);
-			processor.knob("change");
+			var directive = iElm.find("div");
+			scope.data.forEach(function(v,i){
+				for(var item in v){
+					if(v[item].type != "directive"){
+						continue ;
+					}
+					
+				}
+			})
+			console.log(directive);
+		},
+		controller:function($scope){
+
 		}
 	};
 }]);

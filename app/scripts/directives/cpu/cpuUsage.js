@@ -23,6 +23,11 @@ angular.module('cpu').directive('cpuUsage', ['$interval','cpuFactory','$q', func
 		link: function($scope, iElm,iAttr,$interval) {
 			$scope.chart = new CanvasJS.Chart("chartContainer", {
               theme: "theme2",//theme1
+              AxisX:{
+              	valueFormatString:"DD,HH:mm:ss",
+              	interval:1,
+              	intervalType:"second"
+              },
               title:{
                   text: "cpu usage"              
              },
@@ -38,12 +43,8 @@ angular.module('cpu').directive('cpuUsage', ['$interval','cpuFactory','$q', func
 		controller:function($scope,$interval,$q,cpuFactory){
 			$scope.chartTitle="CPU usage";
 			$scope.data =[] ;
-			$scope.$watch("cpuData",function(){
-				var cpuUsage={
-					x:$scope.cpuData.timestamp,
-					y:$scope.cpuData.total_usage
-				};
-				$scope.data.push(cpuUsage);
+			$scope.$watch("totalUsage",function(){
+				$scope.data.push($scope.totalUsage);
 				if($scope.data.length>10){
 		    			$scope.data.shift();
 		    			console.log("0: "+$scope.data[0].x);
@@ -52,7 +53,6 @@ angular.module('cpu').directive('cpuUsage', ['$interval','cpuFactory','$q', func
 		    		}
 				if($scope.chart&&$scope.data.length>5){
 			    			$scope.chart.render();
-			    			$scope.render =false;
 			    		}
 			}, true);
 			
@@ -67,7 +67,7 @@ angular.module("cpu").factory('cpuFactory', ['$interval','$http','$q', function(
 	cpuFactory.getCpuData = function(){
 
 		$http({
-        			url: 'http://10.200.120.222:8080/earlybird/cpu/getRealtimeUsage.do',
+        			url: 'http://10.200.138.73:8080/earlybird/cpu/getRealtimeUsage.do',
         				method: "get",
         				withCredentials: false,
 				        headers: {

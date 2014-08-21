@@ -1,0 +1,26 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        {{title}}
+    </div>
+    <!-- /.panel-heading -->
+    <div class="panel-body">
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                <thead>
+                    <tr>
+                        <th ng-repeat="headItem in head">{{headItem}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr id="tRow" ng-repeat="row in data" class="odd gradeX">
+                        <td ng-repeat="(key, value) in row" >
+                            <div ng-if="value.type=='text'">{{value.text}}</div>
+                            <div ng-if="value.type=='directive'" style="{margin:0 auto,top:'center'}"ng-transclude>
+                            <div ng-if="value.type=='img'"><img ng-src="{{value.img.src}}"/></div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

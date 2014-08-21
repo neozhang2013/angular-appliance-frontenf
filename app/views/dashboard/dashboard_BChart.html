@@ -1,37 +1,37 @@
-<div class="col-lg-8" >
-    <div class="panel panel-default">        
-        <div class="panel-heading">
-            <i class="fa fa-bar-chart-o fa-fw"></i> {{chartTitle}}{{data.length}}
-            <div class="pull-right">
-                <div class="btn-group">
-                    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                        Actions
-                        <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu pull-right" role="menu">
-                        <li><a href="#">Action</a>
-                        </li>
-                        <li><a href="#">Another action</a>
-                        </li>
-                        <li><a href="#">Something else here</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li><a href="#">Separated link</a>
-                        </li>
-                    </ul>
-                </div>
+
+<div class="panel panel-default">        
+    <div class="panel-heading">
+        <i class="fa fa-bar-chart-o fa-fw"></i> {{chartTitle}}{{data.length}}
+        <div class="pull-right">
+            <div class="btn-group">
+                <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                    Actions
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu pull-right" role="menu">
+                    <li><a href="#">Action</a>
+                    </li>
+                    <li><a href="#">Another action</a>
+                    </li>
+                    <li><a href="#">Something else here</a>
+                    </li>
+                    <li class="divider"></li>   
+                    <li><a href="#">Separated link</a>
+                    </li>
+                </ul>
             </div>
-        </div>                      <!-- /.panel-heading -->
-        <div class="panel-body">
-            <div class="row">
-                <div id="chartContainer" style="height: 300px; width: 100%;" render="render">  
-                </div>
+        </div>
+    </div>                      <!-- /.panel-heading -->
+    <div class="panel-body">
+        <div class="row">
+            <div id="chartContainer" style="height: 300px; width: 100%;" render="render">  
             </div>
-            <div class="row">
-                <processor-usage ng-repeat="processor in processors" value="processor.usage" id="prcs_$index"></processor-usage>
-           </div>
-             <!-- <processor-panel processors></processor-panel> -->
-        </div>                       
-    </div>
+        </div>
+        <div class="row">
+            <processor-usage ng-repeat="processor in processors" value="processor.usage" index="{{$index}}"></processor-usage>
+       </div>
+         <!-- <processor-panel processors></processor-panel> -->
+    </div>                       
 </div>
+
  

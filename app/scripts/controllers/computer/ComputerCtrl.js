@@ -1,27 +1,6 @@
 angular.module("computer")
-	.controller('ComputerCtrl', ['$scope',function($scope){
-		$scope.computers = [{
-			name:'test1',
-			cpu:'core i7',
-			ram:'8G',
-			disk:'1T'
-		},
-		{
-			name:'test2',
-			cpu:'core i7',
-			ram:'8G',
-			disk:'1T'
-		},
-		{
-			name:'test3',
-			cpu:'core i7',
-			ram:'8G',
-			disk:'1T'
-		},
-		{
-			name:'test4',
-			cpu:'core i7',
-			ram:'8G',
-			disk:'1T'
-		}];
+	.controller('ComputerCtrl', ['$scope','$interval','ComputerCRUD',function($scope,$interval,ComputerCRUD){
+		var insterval = $interval(function(){
+		$scope.computers=ComputerCRUD.getAllComputers();
+	},2000);
 	}]);

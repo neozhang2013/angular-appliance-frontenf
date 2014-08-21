@@ -4,7 +4,7 @@
 * Description
 */
 'use strict';
-angular.module('computer', ['ngRoute'])
+angular.module('computer', ['ngRoute','ngResource'])
 .config(function ($routeProvider) {
     $routeProvider
       .when('/computer', {

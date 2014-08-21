@@ -26,6 +26,10 @@ angular
         templateUrl: 'views/common/dashboard.html',
         controller: 'QuickPanelCtrl'
       })
+      .when('/cpu', {
+        templateUrl: 'views/common/cpu.html',
+        controller: 'CpuCtrl'
+      })
       .when('/about', {
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
